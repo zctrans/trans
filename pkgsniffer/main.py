@@ -1,7 +1,9 @@
 import scapy.all as scapy
+from scapy.layers import http
 
 def procces_sniffed_package(package):
-    print(package)
+    if package.haslayer(http.HTTPRequest):
+        print(package.summary())
 
 def sniff(interface):
     scapy.sniff(
@@ -10,5 +12,4 @@ def sniff(interface):
         prn=procces_sniffed_package,
     )
 
-
-sniff("")
+sniff('wlp2s0b1')
