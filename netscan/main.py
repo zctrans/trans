@@ -18,11 +18,16 @@ def scan(ip):
     broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
     arp_request_broadcast = broadcast / arp_request
     
-    answered, _ = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)
+    answered = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
+    
+    caughts = []
+
+    for el in answered:
+        for answer in el:
+            caughts.append(Caught(answer.pdst, answer.hwsrc))
     
     
-        
-    return [Caught(ip=caught.pdst, mac=caught.hwsrc) for caught in [answer for answer in [element[0] for element in answered]]]
+    return caughts
         
 def show_tabled(list_of_caught):
     print(tabulate(
