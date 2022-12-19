@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/ctrlxurlips/Documents/py/eh/netscan/venv"
+VIRTUAL_ENV="/home/ctrlxurlips/Documents/py/eh/trans/netscan/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

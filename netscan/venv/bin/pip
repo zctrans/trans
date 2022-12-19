@@ -1,4 +1,4 @@
-#!/home/ctrlxurlips/Documents/py/eh/netscan/venv/bin/python3
+#!/home/ctrlxurlips/Documents/py/eh/trans/netscan/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys
