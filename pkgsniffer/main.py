@@ -1,5 +1,6 @@
 import scapy.all as scapy
 from scapy.layers import http
+from scapy.layers.http import *
 
 def procces_sniffed_package(package):
     if package.haslayer(http.HTTPRequest):
