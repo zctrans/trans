@@ -26,7 +26,9 @@ def scan(ip):
         for answer in el:
             caughts.append(Caught(answer.pdst, answer.hwsrc))
     
-    
+    for i in caughts:
+        i.show()
+
     return caughts
         
 def show_tabled(list_of_caught):
