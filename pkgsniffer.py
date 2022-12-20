@@ -24,7 +24,7 @@ argparser.add_argument('-i', type=str, dest='i', help='Interface name')
 args = argparser.parse_args()
 
 try:
-    sniff(args.i)
     print(f"Sniffing interface {args.i} is running")
+    sniff(args.i)
 except KeyboardInterrupt:
     print("Aborted by keyboard")
