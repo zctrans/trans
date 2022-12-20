@@ -53,19 +53,17 @@ def spoof_loop(target_ip, gateway_ip):
         restore(gateway_ip, target_ip)
         print("\n\nAborted by keyboard. Restoring arp-tables..")
 
-target_ip = '192.168.1.65'
-gateway_ip = '192.168.1.1'
-spoof_loop(target_ip, gateway_ip)
 
 
-# argparser = argparse.ArgumentParser()
-# argparser.add_argument('-ti', type=str, dest='ti', help='IP of victim') # target ip
-# argparser.add_argument('-tm', type=str, dest='tm', help='MAC of victim') # target mac
-# argparser.add_argument('-ri', type=str, dest='ri', help='IP of route') # route ip
-# args = argparser.parse_args()
 
-# spoof('192.168.1.65', '192.168.1.1')
-# spoof('192.168.1.1', '192.168.1.65')
+# target_ip = '192.168.1.65'
+# gateway_ip = '192.168.1.1'
+argparser = argparse.ArgumentParser()
+argparser.add_argument('-ti', type=str, dest='ti', help='IP of victim') # target ip
+argparser.add_argument('-gi', type=str, dest='gi', help='IP of gateway') # gateway ip
+args = argparser.parse_args()
+
+spoof_loop(target_ip=args.ti, gateway_ip=args.gi)
 
 
 
