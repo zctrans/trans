@@ -7,6 +7,7 @@ def get_v_args():
     parser.add_argument('-v', '--victim', dest='victim', help='Victim IP')
     parser.add_argument('-b', '--begin', dest='begin', help='Begin of slice')
     parser.add_argument('-e', '--end', dest='end', help='End of slice')
+    parser.add_argument('-gi', '--gateway_ip', dest='gi', help='Optional: IP of gateway')
     options = parser.parse_args()
 
     return options
@@ -14,11 +15,17 @@ def get_v_args():
 def gen_ips(target):
     ips = []
     target_root = match(r'\d+\.\d+\.\d+\.', target).group()
-    for i in range(1, 256):
+    for i in range(0, 256):
         ips.append(target_root+str(i))
 
     return ips            
         
 
-for ip in gen_ips(get_v_args().victim)[int(get_v_args().begin):int(get_v_args().end)]:
-    display_result(scan(ip), ip, True)
+def show():
+    for ip in gen_ips(get_v_args().victim)[int(get_v_args().begin):int(get_v_args().end)]:
+        result = scan(ip)        
+        display_result(result, ip, True)
+
+show()
+
+

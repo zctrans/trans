@@ -54,10 +54,6 @@ def spoof_loop(target_ip, gateway_ip):
         print("\n\nAborted by keyboard. Restoring arp-tables..")
 
 
-
-
-# target_ip = '192.168.1.65'
-# gateway_ip = '192.168.1.1'
 argparser = argparse.ArgumentParser()
 argparser.add_argument('-ti', type=str, dest='ti', help='IP of victim') # target ip
 argparser.add_argument('-gi', type=str, dest='gi', help='IP of gateway') # gateway ip
